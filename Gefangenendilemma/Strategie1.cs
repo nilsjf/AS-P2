@@ -1,3 +1,4 @@
+using System;
 using Gefangenendilemma.Basis;
 
 namespace Gefangenendilemma
@@ -19,7 +20,7 @@ namespace Gefangenendilemma
         /// <returns></returns>
         public override string Name()
         {
-            return "Bitte anpassen";
+            return "Copycat";
         }
 
         /// <summary>
@@ -28,7 +29,7 @@ namespace Gefangenendilemma
         /// <returns></returns>
         public override string Autor()
         {
-            return "Bitte anpassen";
+            return "Nils Figura";
         }
 
         /// <summary>
@@ -48,9 +49,11 @@ namespace Gefangenendilemma
         /// <returns>Gibt die eigene Reaktion für diese Runde zurück (Kooperieren = 0, Verrat = 1)</returns>
         public override int Verhoer(int letzteReaktion)
         {
-            //Strategie hier ergänzen
-
-            return Verrat;
+            if(letzteReaktion == NochNichtVerhoert) {
+                return Kooperieren;
+            } else {
+                return letzteReaktion;
+            }
         }
     }
 }
