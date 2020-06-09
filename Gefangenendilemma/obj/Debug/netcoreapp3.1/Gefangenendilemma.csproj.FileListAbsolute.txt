@@ -1,0 +1,13 @@
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.exe
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.deps.json
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.runtimeconfig.json
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.runtimeconfig.dev.json
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.dll
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\bin\Debug\netcoreapp3.1\Gefangenendilemma.pdb
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.csprojAssemblyReference.cache
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.csproj.CoreCompileInputs.cache
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.AssemblyInfoInputs.cache
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.AssemblyInfo.cs
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.dll
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.pdb
+C:\Users\A104356754\Entwicklung\as-p2\Gefangenendilemma\obj\Debug\netcoreapp3.1\Gefangenendilemma.genruntimeconfig.cache
