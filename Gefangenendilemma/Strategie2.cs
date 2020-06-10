@@ -4,13 +4,18 @@ namespace Gefangenendilemma
 {
     public class Strategie2 : BasisStrategie
     {
+        private int _runden;
+        private int _runde = 1;
+        private int _schwereEinstellung;
+
+
         /// <summary>
         /// Gibt den Namen der Strategie zurück, wichtig zum Anzeigen für die Auswahl
         /// </summary>
         /// <returns></returns>
         public override string Name()
         {
-            return "Bitte anpassen";
+            return "Anti-Groll";
         }
 
         /// <summary>
@@ -19,7 +24,7 @@ namespace Gefangenendilemma
         /// <returns></returns>
         public override string Autor()
         {
-            return "Bitte anpassen";
+            return "Thomas Weier";
         }
 
         /// <summary>
@@ -29,7 +34,8 @@ namespace Gefangenendilemma
         /// <param name="schwere">Schwere des Verbrechen (VLeicht = 0, VMittel = 1, VSchwer = 2)</param>
         public override void Start(int runde, int schwere)
         {
-            //Vorbereitungen für Start
+            _runden = runde;
+            _schwereEinstellung = schwere;
         }
 
         /// <summary>
@@ -39,7 +45,17 @@ namespace Gefangenendilemma
         /// <returns>Gibt die eigene Reaktion für diese Runde zurück (Kooperieren = 0, Verrat = 1)</returns>
         public override int Verhoer(int letzteReaktion)
         {
-            //Strategie hier ergänzen
+            if (_schwereEinstellung == 1)
+            {
+                return Kooperieren;
+            }
+
+            if (_runde < _runden)
+            {
+                _runde++;
+
+                return Kooperieren;
+            }
 
             return Verrat;
         }
