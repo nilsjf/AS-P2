@@ -1,4 +1,5 @@
 using Gefangenendilemma.Basis;
+using System.Linq.Expressions;
 
 namespace Gefangenendilemma
 {
@@ -7,13 +8,14 @@ namespace Gefangenendilemma
     /// </summary>
     public class Strategie3 : BasisStrategie
     {
+        private int schwereEinstellung;
         /// <summary>
         /// Gibt den Namen der Strategie zurück, wichtig zum Anzeigen für die Auswahl
         /// </summary>
         /// <returns></returns>
         public override string Name()
         {
-            return "Bitte anpassen";
+            return "Anti-Verrate Immer";
         }
 
         /// <summary>
@@ -22,7 +24,7 @@ namespace Gefangenendilemma
         /// <returns></returns>
         public override string Autor()
         {
-            return "Bitte anpassen";
+            return "Alan-Adam Kulinski";
         }
 
         /// <summary>
@@ -33,6 +35,7 @@ namespace Gefangenendilemma
         public override void Start(int runde, int schwere)
         {
             //Vorbereitungen für Start
+            schwereEinstellung = schwere;
         }
 
         /// <summary>
@@ -43,8 +46,7 @@ namespace Gefangenendilemma
         public override int Verhoer(int letzteReaktion)
         {
             //Strategie hier ergänzen
-
-            return Verrat;
+            return (schwereEinstellung == 0 || schwereEinstellung == 2) ? Verrat : Kooperieren;
         }
     }
 }
