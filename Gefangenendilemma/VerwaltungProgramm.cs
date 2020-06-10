@@ -72,7 +72,7 @@ namespace Gefangenendilemma
             
             Console.WriteLine("Willkommen zum Verhör zwischen 2 Strategien!");
             
-            (BasisStrategie strategie1, BasisStrategie strategie2) = Auswahl2Strats();
+            (BasisStrategie strategie1, BasisStrategie strategie2) = Utility.Auswahl2Strats();
             runde = VerwaltungKram.EingabeZahlMinMax("Wie viele Runden sollen diese verhört werden?", 1, 101);
             schwere = VerwaltungKram.EingabeZahlMinMax("Wie schwer sind die Verstöße? (0=leicht, 1=mittel, 2=schwer)", 0, 3);
 
@@ -94,34 +94,10 @@ namespace Gefangenendilemma
 
         static void Gefangene9Spiele()
         {
-            int punkte1final = 0, punkte2final = 0;
-
             Console.WriteLine("Willkommen zum Verhör zwischen 2 Strategien in 9 Runden!");
             
-            (BasisStrategie strategie1, BasisStrategie strategie2) = Auswahl2Strats();
-
-            for(int i = 0; i < 3; i++)
-            {
-                (int punkte1, int punkte2) = VerhoerVerwaltung.Verhoer(strategie1, strategie2, 5, i);
-                punkte1 = punkte1 * 20;
-                punkte2 = punkte2 * 20;
-                punkte1final += punkte1;
-                punkte2final += punkte2;
-            }
-            for(int i = 0; i < 3; i++)
-            {
-                (int punkte1, int punkte2) = VerhoerVerwaltung.Verhoer(strategie1, strategie2, 25, i);
-                punkte1 = punkte1 * 4;
-                punkte2 = punkte2 * 4;
-                punkte1final += punkte1;
-                punkte2final += punkte2;
-            }
-            for(int i = 0; i < 3; i++)
-            {
-                (int punkte1, int punkte2) = VerhoerVerwaltung.Verhoer(strategie1, strategie2, 100, i);
-                punkte1final += punkte1;
-                punkte2final += punkte2;
-            }
+            (BasisStrategie strategie1, BasisStrategie strategie2) = Utility.Auswahl2Strats();
+            (int punkte1final, int punkte2final) = Utility.NeunSpiele(strategie1, strategie2);
 
             Console.WriteLine("Endergebnis:");
             Console.WriteLine($"{strategie1.Name()} hat insgesamt {punkte1final} Punkte erhalten.");
@@ -142,31 +118,33 @@ namespace Gefangenendilemma
 
         static void GefangeneBenutzer()
         {
+            int runde, schwere;
+
             Console.WriteLine("Willkommen zum Verhör zwischen Ihnen und einer Strategie!");
+
+            BasisStrategie strategie = Utility.AuswahlStrat();
+            runde = VerwaltungKram.EingabeZahlMinMax("Wie viele Runden sollen diese verhört werden?", 1, 101);
+            schwere = VerwaltungKram.EingabeZahlMinMax("Wie schwer sind die Verstöße? (0=leicht, 1=mittel, 2=schwer)", 0, 3);
+
+            (int punkteB, int punkteS) = VerhoerVerwaltung.VerhoerBenutzer(strategie, runde, schwere);
+
+            if (punkteB < punkteS)
+            {
+                Console.WriteLine("Somit haben Sie gewonnen.");
+            } 
+            if (punkteB > punkteS)
+            {
+                Console.WriteLine("Somit hat {0} gewonnen.", strategie.Name());
+            }
+            if (punkteB == punkteS)
+            {
+                Console.WriteLine("Unentschieden.");
+            }
         }
 
         static void GefangeneTurnier()
         {
             Console.WriteLine("Willkommen zum Turnier mit allen Strategien!");
-        }
-
-        static (BasisStrategie, BasisStrategie) Auswahl2Strats()
-        {
-            int st1, st2;
-
-            Console.WriteLine("Wählen Sie ihre 2 Strategien:");
-            for (int i = 0; i < _strategien.Count; i++)
-            {
-                Console.WriteLine($"{i} - {_strategien[i].Name()}");
-            }
-            st1 = VerwaltungKram.EingabeZahlMinMax("Wählen Sie die 1. Strategie", 0, _strategien.Count);
-            st2 = VerwaltungKram.EingabeZahlMinMax("Wählen Sie die 2. Strategie", 0, _strategien.Count);
-
-            //holt die beiden Strategien aus der Collection.
-            BasisStrategie strategie1 = VerwaltungProgramm._strategien[st1];
-            BasisStrategie strategie2 = VerwaltungProgramm._strategien[st2];
-
-            return (strategie1, strategie2);
         }
     } 
 }
