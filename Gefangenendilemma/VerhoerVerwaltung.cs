@@ -23,7 +23,7 @@ namespace Gefangenendilemma
             strategie1.Start(runde, schwere);
             strategie2.Start(runde, schwere);
             
-            Console.WriteLine($"Verhör zwischen {strategie1.Name()} und {strategie2.Name()} für {runde} Runden.");
+            Console.WriteLine($"Verhör zwischen {strategie1.Name()} und {strategie2.Name()} für {runde} Runden, Schwierigkeit {schwere}:");
             
             //start
             for (int i = 0; i < runde; i++)
@@ -50,6 +50,10 @@ namespace Gefangenendilemma
                 reaktion1 = aktReaktion1;
                 reaktion2 = aktReaktion2;
             }
+
+            //ausgabe
+            Console.WriteLine($"{strategie1.Name()} hat {punkte1} Punkte erhalten.");
+            Console.WriteLine($"{strategie2.Name()} hat {punkte2} Punkte erhalten.");
             
             return (punkte1, punkte2);
         }
