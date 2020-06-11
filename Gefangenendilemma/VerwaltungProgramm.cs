@@ -145,6 +145,35 @@ namespace Gefangenendilemma
         static void GefangeneTurnier()
         {
             Console.WriteLine("Willkommen zum Turnier mit allen Strategien!");
+
+            List<int> _stratPunkte = new List<int>();
+            for(int i = 0; i < _strategien.Count; i++)
+            {
+                _stratPunkte.Add(0);
+            }
+
+            for(int i = 0; i < _strategien.Count; i++)
+            {
+                int tmp = i+1;
+                for(int j = tmp; j < _strategien.Count; j++)
+                {
+                    BasisStrategie strategie1 = VerwaltungProgramm._strategien[i];
+                    BasisStrategie strategie2 = VerwaltungProgramm._strategien[j];
+                    (int punkte1, int punkte2) = Utility.NeunSpiele(strategie1, strategie2);
+                    _stratPunkte[i] += punkte1;
+                    _stratPunkte[j] += punkte2;
+                    Console.WriteLine("Endergebnis:");
+                    Console.WriteLine($"{strategie1.Name()} hat insgesamt {punkte1} Punkte erhalten.");
+                    Console.WriteLine($"{strategie2.Name()} hat insgesamt {punkte2} Punkte erhalten.");
+                }
+            }
+
+            Console.WriteLine("TURNIER ERGEBNIS");
+
+            for(int i = 0; i < _stratPunkte.Count; i++)
+            {
+                Console.WriteLine($"{_strategien[i].Name()}: {_stratPunkte[i]} Pkt");
+            }
         }
     } 
 }
