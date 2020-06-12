@@ -85,22 +85,5 @@ namespace Gefangenendilemma
             }
             return null;
         }
-
-        public static string GetReaktion(int i)
-        {
-            if(i == -1)
-            {
-                return "Noch nicht verhört";
-            }
-            if(i == 0)
-            {
-                return "Kooperieren";
-            }
-            if(i == 1)
-            {
-                return "Verrat";
-            }
-            return null;
-        }
     }
 }

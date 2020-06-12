@@ -31,8 +31,7 @@ namespace Gefangenendilemma
                 Console.WriteLine("\nWillkommen zum Gefangenendilemma!");
                 Console.WriteLine("0 - Verhör zwischen 2 Strategien");
                 Console.WriteLine("1 - Verhör zwischen 2 Strategien in 9 Runden (E2)");
-                Console.WriteLine("2 - Benutzer gegen Strategie (E4)");
-                Console.WriteLine("3 - Turnier mit allen Strategien (T1)");
+                Console.WriteLine("2 - Turnier mit allen Strategien (T1)");
                 Console.WriteLine("X - Beenden");
                 
                 // Eingabe
@@ -49,9 +48,6 @@ namespace Gefangenendilemma
                         Gefangene9Spiele();
                         break;
                     case "2":
-                        GefangeneBenutzer();
-                        break;
-                    case "3":
                         GefangeneTurnier();
                         break;
                     case "X":
@@ -111,32 +107,6 @@ namespace Gefangenendilemma
                 Console.WriteLine("Somit hat {0} gewonnen.", strategie2.Name());
             }
             if (punkte1final == punkte2final)
-            {
-                Console.WriteLine("Unentschieden.");
-            }
-        }
-
-        static void GefangeneBenutzer()
-        {
-            int runde, schwere;
-
-            Console.WriteLine("\nWillkommen zum Verhör zwischen Ihnen und einer Strategie!");
-
-            BasisStrategie strategie = Utility.AuswahlStrat();
-            runde = VerwaltungKram.EingabeZahlMinMax("Wie viele Runden sollen diese verhört werden?", 1, 101);
-            schwere = VerwaltungKram.EingabeZahlMinMax("Wie schwer sind die Verstöße? (0=leicht, 1=mittel, 2=schwer)", 0, 3);
-
-            (int punkteB, int punkteS) = VerhoerVerwaltung.VerhoerBenutzer(strategie, runde, schwere);
-
-            if (punkteB < punkteS)
-            {
-                Console.WriteLine("Somit haben Sie gewonnen.");
-            } 
-            if (punkteB > punkteS)
-            {
-                Console.WriteLine("Somit hat {0} gewonnen.", strategie.Name());
-            }
-            if (punkteB == punkteS)
             {
                 Console.WriteLine("Unentschieden.");
             }

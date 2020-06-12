@@ -59,59 +59,6 @@ namespace Gefangenendilemma
         }
 
         /// <summary>
-        /// Startet ein Verhör zwischen der Strategie an der Position st1 und Position st2 über die Länge von runde und der Schwere schwere
-        /// </summary>
-        /// <param name="st1"></param>
-        /// <param name="st2"></param>
-        /// <param name="runde"></param>
-        /// <param name="schwere"></param>
-        public static (int, int) VerhoerBenutzer(BasisStrategie strategie, int runde, int schwere)
-        {
-            //setzt Startwerte
-            int reaktionB = BasisStrategie.NochNichtVerhoert;
-            int reaktionS = BasisStrategie.NochNichtVerhoert;
-            int punkteB = 0, punkteS = 0;
-
-            //beide Strategien über den Start informieren (Also es wird die Startmethode aufgerufen)
-            strategie.Start(runde, schwere);
-            
-            Console.WriteLine($"\nVerhör zwischen Ihnen und {strategie.Name()} für {runde} Runden, Schwierigkeit {Utility.GetSchwere(schwere)}:");
-            
-            //start
-            for (int i = 0; i < runde; i++)
-            {
-                //beide verhören
-                Console.WriteLine($"\nReaktion von {strategie.Name()} der letzten Runde: {Utility.GetReaktion(reaktionS)}");
-                int aktReaktionB = VerwaltungKram.EingabeZahlMinMax("Wählen Sie Kooperieren (0) oder Verrat (1):", 0, 2);
-                int aktReaktionS = strategie.Verhoer(reaktionB);
-
-                //punkte berechnen
-                if(schwere == 0)
-                {
-                    VerhoerLeichtPunkte(aktReaktionB, aktReaktionS, ref punkteB, ref punkteS);
-                }
-                if(schwere == 1)
-                {
-                    VerhoerMittelPunkte(aktReaktionB, aktReaktionS, ref punkteB, ref punkteS);
-                }
-                if(schwere == 2)
-                {
-                    VerhoerSchwerPunkte(aktReaktionB, aktReaktionS, ref punkteB, ref punkteS);
-                }
-                
-                //reaktion für den nächsten durchlauf merken
-                reaktionB = aktReaktionB;
-                reaktionS = aktReaktionS;
-            }
-
-            //ausgabe
-            Console.WriteLine($"Sie haben {punkteB} Punkte erhalten.");
-            Console.WriteLine($"{strategie.Name()} hat {punkteS} Punkte erhalten.");
-            
-            return (punkteB, punkteS);
-        }
-
-        /// <summary>
         /// Berechnet für leichte Verstöße die Punkte und verwendet die 2 letzten Eingabeparameter als Rückgabe
         /// </summary>
         /// <param name="aktReaktion1"></param>

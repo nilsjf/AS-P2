@@ -10,9 +10,8 @@
 - B2 (+15)
 - E1 (+10)
 - E2 (+10)
-- E4 (+10)
 - R1 (+10)
-- T1 (+10)
+- T1 (+15)
 
 **Zu B1:**
 - Strategie 3 (Anti-Verrate Immer) auf Schwierigkeit Mittel, Rundenzahl egal
