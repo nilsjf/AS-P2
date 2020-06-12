@@ -132,13 +132,13 @@ namespace Gefangenendilemma
                     (int punkte1, int punkte2) = Utility.NeunSpiele(strategie1, strategie2);
                     _stratPunkte[i] += punkte1;
                     _stratPunkte[j] += punkte2;
-                    Console.WriteLine("Endergebnis:");
+                    Console.WriteLine("\nEndergebnis:");
                     Console.WriteLine($"{strategie1.Name()} hat insgesamt {punkte1} Punkte erhalten.");
                     Console.WriteLine($"{strategie2.Name()} hat insgesamt {punkte2} Punkte erhalten.");
                 }
             }
 
-            Console.WriteLine("TURNIER ERGEBNIS");
+            Console.WriteLine("\nTURNIER ERGEBNIS:");
 
             SortedDictionary<int, string> _rangliste = new SortedDictionary<int, string>();
             for(int i = 0; i < _stratPunkte.Count; i++)
