@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Gefangenendilemma.Basis;
 
@@ -170,9 +170,16 @@ namespace Gefangenendilemma
 
             Console.WriteLine("TURNIER ERGEBNIS");
 
+            SortedDictionary<int, string> _rangliste = new SortedDictionary<int, string>();
             for(int i = 0; i < _stratPunkte.Count; i++)
             {
-                Console.WriteLine($"{_strategien[i].Name()}: {_stratPunkte[i]} Pkt");
+                _rangliste.Add(_stratPunkte[i], _strategien[i].Name());
+            }
+            int platz = 1;
+            foreach(KeyValuePair<int, string> kvp in _rangliste)
+            {
+                Console.WriteLine($"{platz}. Platz: {kvp.Value} mit {kvp.Key} Punkten");
+                platz += 1;
             }
         }
     } 
