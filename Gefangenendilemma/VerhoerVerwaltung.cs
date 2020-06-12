@@ -23,7 +23,7 @@ namespace Gefangenendilemma
             strategie1.Start(runde, schwere);
             strategie2.Start(runde, schwere);
             
-            Console.WriteLine($"Verhör zwischen {strategie1.Name()} und {strategie2.Name()} für {runde} Runden, Schwierigkeit {schwere}:");
+            Console.WriteLine($"\nVerhör zwischen {strategie1.Name()} und {strategie2.Name()} für {runde} Runden, Schwierigkeit {Utility.GetSchwere(schwere)}:");
             
             //start
             for (int i = 0; i < runde; i++)
@@ -75,16 +75,14 @@ namespace Gefangenendilemma
             //beide Strategien über den Start informieren (Also es wird die Startmethode aufgerufen)
             strategie.Start(runde, schwere);
             
-            Console.WriteLine($"Verhör zwischen Ihnen und {strategie.Name()} für {runde} Runden, Schwierigkeit {schwere}:");
+            Console.WriteLine($"\nVerhör zwischen Ihnen und {strategie.Name()} für {runde} Runden, Schwierigkeit {Utility.GetSchwere(schwere)}:");
             
             //start
             for (int i = 0; i < runde; i++)
             {
                 //beide verhören
-                Console.WriteLine($"Reaktion von {strategie.Name()} der letzten Runde: {reaktionS}");
-                Console.WriteLine("Wählen Sie Kooperieren (0) oder Verrat (1): ");
-                string eingabe = Console.ReadLine();
-                int aktReaktionB = Int32.Parse(eingabe);
+                Console.WriteLine($"\nReaktion von {strategie.Name()} der letzten Runde: {Utility.GetReaktion(reaktionS)}");
+                int aktReaktionB = VerwaltungKram.EingabeZahlMinMax("Wählen Sie Kooperieren (0) oder Verrat (1):", 0, 2);
                 int aktReaktionS = strategie.Verhoer(reaktionB);
 
                 //punkte berechnen

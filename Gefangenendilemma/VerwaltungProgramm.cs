@@ -28,7 +28,7 @@ namespace Gefangenendilemma
             do
             {
                 // Begrüßung
-                Console.WriteLine("Willkommen zum Gefangenendilemma!");
+                Console.WriteLine("\nWillkommen zum Gefangenendilemma!");
                 Console.WriteLine("0 - Verhör zwischen 2 Strategien");
                 Console.WriteLine("1 - Verhör zwischen 2 Strategien in 9 Runden (E2)");
                 Console.WriteLine("2 - Benutzer gegen Strategie (E4)");
@@ -36,7 +36,7 @@ namespace Gefangenendilemma
                 Console.WriteLine("X - Beenden");
                 
                 // Eingabe
-                Console.Write("Treffen Sie ihre Option: ");
+                Console.WriteLine("Treffen Sie ihre Option: ");
                 eingabe = Console.ReadLine();
 
                 // Auswerten der Eingabe
@@ -70,7 +70,7 @@ namespace Gefangenendilemma
         {
             int runde, schwere;
             
-            Console.WriteLine("Willkommen zum Verhör zwischen 2 Strategien!");
+            Console.WriteLine("\nWillkommen zum Verhör zwischen 2 Strategien!");
             
             (BasisStrategie strategie1, BasisStrategie strategie2) = Utility.Auswahl2Strats();
             runde = VerwaltungKram.EingabeZahlMinMax("Wie viele Runden sollen diese verhört werden?", 1, 101);
@@ -80,26 +80,26 @@ namespace Gefangenendilemma
 
             if (punkte1 < punkte2)
             {
-                Console.WriteLine("Somit hat {0} gewonnen.", strategie1.Name());
+                Console.WriteLine("\nSomit hat {0} gewonnen.", strategie1.Name());
             } 
             if (punkte1 > punkte2)
             {
-                Console.WriteLine("Somit hat {0} gewonnen.", strategie2.Name());
+                Console.WriteLine("\nSomit hat {0} gewonnen.", strategie2.Name());
             }
             if (punkte1 == punkte2)
             {
-                Console.WriteLine("Unentschieden.");
+                Console.WriteLine("\nUnentschieden.");
             }
         }
 
         static void Gefangene9Spiele()
         {
-            Console.WriteLine("Willkommen zum Verhör zwischen 2 Strategien in 9 Runden!");
+            Console.WriteLine("\nWillkommen zum Verhör zwischen 2 Strategien in 9 Runden!");
             
             (BasisStrategie strategie1, BasisStrategie strategie2) = Utility.Auswahl2Strats();
             (int punkte1final, int punkte2final) = Utility.NeunSpiele(strategie1, strategie2);
 
-            Console.WriteLine("Endergebnis:");
+            Console.WriteLine("\nENDERGEBNIS:");
             Console.WriteLine($"{strategie1.Name()} hat insgesamt {punkte1final} Punkte erhalten.");
             Console.WriteLine($"{strategie2.Name()} hat insgesamt {punkte2final} Punkte erhalten.");
             if (punkte1final < punkte2final)
@@ -120,7 +120,7 @@ namespace Gefangenendilemma
         {
             int runde, schwere;
 
-            Console.WriteLine("Willkommen zum Verhör zwischen Ihnen und einer Strategie!");
+            Console.WriteLine("\nWillkommen zum Verhör zwischen Ihnen und einer Strategie!");
 
             BasisStrategie strategie = Utility.AuswahlStrat();
             runde = VerwaltungKram.EingabeZahlMinMax("Wie viele Runden sollen diese verhört werden?", 1, 101);

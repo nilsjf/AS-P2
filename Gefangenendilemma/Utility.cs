@@ -68,5 +68,39 @@ namespace Gefangenendilemma
 
             return (punkte1final, punkte2final);
         }
+
+        public static string GetSchwere(int i)
+        {
+            if(i == 0)
+            {
+                return "leicht";
+            }
+            if(i == 1)
+            {
+                return "mittel";
+            }
+            if(i == 2)
+            {
+                return "schwer";
+            }
+            return null;
+        }
+
+        public static string GetReaktion(int i)
+        {
+            if(i == -1)
+            {
+                return "Noch nicht verhört";
+            }
+            if(i == 0)
+            {
+                return "Kooperieren";
+            }
+            if(i == 1)
+            {
+                return "Verrat";
+            }
+            return null;
+        }
     }
 }
